@@ -1,0 +1,1 @@
+# OpenDataDiscovery ODBC adapter

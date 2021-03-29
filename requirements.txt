@@ -1,0 +1,6 @@
+--extra-index-url https://test.pypi.org/simple/
+odd-contract-dev==0.0.22
+gunicorn==20.0.4
+flask==1.1.2
+apscheduler==3.7.0
+pyodbc==4.0.30
