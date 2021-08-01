@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+
+  db:
+    image: mcr.microsoft.com/mssql/server:latest
+    restart: always
+    environment:
+      # https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-environment-variables?view=sql-server-ver15
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${ODBC_PASSWORD}
+      - MSSQL_PID=${MSSQL_PID}
+      - MSSQL_TCP_PORT=${ODBC_PORT}
+    ports:
+      - ${ODBC_PORT}
+
+  adapter:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      # Cache refreshing interval (minutes):
+      - SCHEDULER_INTERVAL_MINUTES=${SCHEDULER_INTERVAL_MINUTES}
+      # ODBC (for MS SQL Server):
+      - ODBC_DRIVER=${ODBCDRIVER}
+      - ODBC_HOST=${ODBC_HOST}
+      - ODBC_PORT=${ODBC_PORT}
+      - ODBC_DATABASE=${ODBC_DATABASE}
+      - ODBC_USER=${ODBC_DATABASE}
+      - ODBC_PASSWORD=${ODBC_PASSWORD}
+      # FLASK:
+      - FLASK_ENVIRONMENT=development
+      - FLASK_APP=${FLASK_APP}
+    depends_on:
+      - db
+    ports:
+      - 8080:8080
