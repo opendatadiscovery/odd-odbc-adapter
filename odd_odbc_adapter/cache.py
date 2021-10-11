@@ -2,6 +2,7 @@ import logging
 from datetime import datetime
 from itertools import chain
 from typing import List, Union, Iterable, Tuple
+
 from odd_contract.models import DataEntity
 
 CacheEntry = Tuple[List[DataEntity], datetime]

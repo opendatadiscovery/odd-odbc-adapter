@@ -1,9 +1,10 @@
 version: "3.8"
 
 services:
-
-  db:
+  db-mssql:
     image: mcr.microsoft.com/mssql/server:latest
+    container_name: odd-mssql-db
+    hostname: ${ODBC_HOST}
     restart: always
     environment:
       # https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-environment-variables?view=sql-server-ver15
@@ -12,27 +13,28 @@ services:
       - MSSQL_PID=${MSSQL_PID}
       - MSSQL_TCP_PORT=${ODBC_PORT}
     ports:
-      - ${ODBC_PORT}
+      - ${ODBC_PORT}:${ODBC_PORT}
 
-  adapter:
+  odd-odbc-adapter:
     build:
       context: ..
       dockerfile: Dockerfile
+    container_name: odd-odbc-adapter
     restart: always
     environment:
       # Cache refreshing interval (minutes):
       - SCHEDULER_INTERVAL_MINUTES=${SCHEDULER_INTERVAL_MINUTES}
       # ODBC (for MS SQL Server):
-      - ODBC_DRIVER=${ODBCDRIVER}
+      - ODBC_DRIVER=${ODBC_DRIVER}
       - ODBC_HOST=${ODBC_HOST}
       - ODBC_PORT=${ODBC_PORT}
       - ODBC_DATABASE=${ODBC_DATABASE}
-      - ODBC_USER=${ODBC_DATABASE}
+      - ODBC_USER=${ODBC_USER}
       - ODBC_PASSWORD=${ODBC_PASSWORD}
       # FLASK:
-      - FLASK_ENVIRONMENT=development
+      - FLASK_ENVIRONMENT=${FLASK_ENVIRONMENT}
       - FLASK_APP=${FLASK_APP}
     depends_on:
-      - db
+      - db-mssql
     ports:
       - 8080:8080
