@@ -19,10 +19,6 @@ Strongly recommended to override next variables in docker-compose .env file:
 ODBC_DATABASE=master
 ODBC_USER=sa
 ODBC_PASSWORD=odd-adapter-password-1
-
-CLOUD_TYPE=aws
-CLOUD_REGION=region_1
-CLOUD_ACCOUNT=account_1
 ```
 
 After docker-compose run successful, application is ready to accept connection on port :8080. 
@@ -61,16 +57,13 @@ FLASK_APP = wsgi:application #Path to wsgi module of application (required by gu
 
 MSSQL_PID=Developer
 
-ODBC_DRIVER=ODBC Driver 17 for SQL Server
-ODBC_HOST=db #Host of your ODBC.
+ODBC_DRIVER="ODBC Driver 17 for SQL Server"
+ODBC_HOST=odd-mssql-db #Host of your ODBC.
 ODBC_PORT=1433 #Port of your ODBC.
 ODBC_DATABASE=master #Name of your ODBC.
 ODBC_USER=sa #Username of your ODBC.
 ODBC_PASSWORD=odd-adapter-password-1 #Password of your ODBC.
 
-CLOUD_TYPE = aws #Name of your cloud service. Used to form ODDRN.
-CLOUD_REGION = region_1 #Region of your cloud service. Used to form ODDRN.
-CLOUD_ACCOUNT = account_1 #Account of your cloud service. Used to form ODDRN.
 ```
 
 ## Requirements

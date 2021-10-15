@@ -1,13 +1,15 @@
 import logging
+from datetime import datetime
+
 from apscheduler.executors.pool import ThreadPoolExecutor
 from apscheduler.schedulers.background import BackgroundScheduler
-from datetime import datetime
-from app.abstract_adapter import AbstractAdapter
-from app.cache import Cache
+
+from .adapter import OdbcAdapter
+from .cache import Cache
 
 
 class Scheduler:
-    def __init__(self, adapter: AbstractAdapter, cache: Cache) -> None:
+    def __init__(self, adapter: OdbcAdapter, cache: Cache) -> None:
         self.__adapter = adapter
         self.__cache = cache
         self.__scheduler = BackgroundScheduler(executors={"default": ThreadPoolExecutor(1)})
@@ -21,8 +23,5 @@ class Scheduler:
 
     def __retrieve_data_entities(self):
         datasets = self.__adapter.get_datasets()
-        self.__cache.cache_data_entities(
-            datasets,
-            [],
-            [])
+        self.__cache.cache_data_entities(datasets, [], [])
         logging.info(f"Put {len(datasets)} DataEntities from database to cache")
