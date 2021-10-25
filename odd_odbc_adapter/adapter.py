@@ -26,7 +26,7 @@ class OdbcAdapter:
         self.__password: str = config['ODD_PASSWORD']
         self.__data_source: str = f"DRIVER={self.__driver};SERVER={self.__host};DATABASE={self.__database};" \
                                   f"UID={self.__user};PWD={self.__password}"
-        self.__oddrn_generator = OdbcGenerator(host_settings=f"{self.__host}:{self.__port}", databases=self.__database)
+        self.__oddrn_generator = OdbcGenerator(host_settings=f"{self.__host}", databases=self.__database)
 
     def get_data_source_oddrn(self) -> str:
         return self.__oddrn_generator.get_data_source_oddrn()
