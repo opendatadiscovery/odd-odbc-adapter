@@ -1,4 +1,4 @@
-from odd_contract.models import DataSetField, DataSetFieldType, MetadataExtension, DataSetFieldStat, Type
+from odd_models.models import DataSetField, DataSetFieldType, MetadataExtension, DataSetFieldStat, Type
 from oddrn_generator import OdbcGenerator
 
 from . import _data_set_field_metadata_schema_url, ColumnMetadataNamedtuple

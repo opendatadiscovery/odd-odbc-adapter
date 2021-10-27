@@ -1,4 +1,4 @@
-from odd_contract.models import DataEntity, DataSet, MetadataExtension, DataEntityType
+from odd_models.models import DataEntity, DataSet, MetadataExtension, DataEntityType
 from oddrn_generator import OdbcGenerator
 
 from . import _data_set_metadata_schema_url, MetadataNamedtuple, ColumnMetadataNamedtuple
