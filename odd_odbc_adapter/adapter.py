@@ -1,7 +1,7 @@
 import logging
 
 import pyodbc
-from odd_contract.models import DataEntity
+from odd_models.models import DataEntity
 from oddrn_generator import OdbcGenerator
 from pyodbc import Connection, Cursor
 

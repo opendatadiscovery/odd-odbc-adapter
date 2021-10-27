@@ -2,8 +2,8 @@ import logging
 from datetime import datetime
 from typing import Tuple, Any, Dict, Optional
 
-from odd_contract import ODDController
-from odd_contract.models import DataEntityList
+from odd_models import ODDController
+from odd_models.models import DataEntityList
 
 from .adapter import OdbcAdapter
 from .cache import Cache
