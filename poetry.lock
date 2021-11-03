@@ -249,15 +249,15 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "odd-models"
-version = "1.0.0"
+version = "1.0.4"
 description = "Open Data Discovery Models"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.6,<4.0"
 
 [package.dependencies]
 connexion = "2.7.0"
-flask-compress = "1.10.1"
+Flask-Compress = "1.10.1"
 pydantic = "1.8.2"
 
 [[package]]
@@ -452,7 +452,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "0f62f3b946e50b983f899f93b9220ff428a04421fc6dbd014bb2c85534e97a3c"
+content-hash = "5c735b5bbc351fdcd52e3c7e91f8ed8d173c28e68a1e6435d06fd022ba25b887"
 
 [metadata.files]
 apscheduler = [
@@ -662,8 +662,8 @@ markupsafe = [
     {file = "MarkupSafe-2.0.1.tar.gz", hash = "sha256:594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"},
 ]
 odd-models = [
-    {file = "odd-models-1.0.0.tar.gz", hash = "sha256:c198e1c2bd2024d4913b0eafb16a71661dfca8544298be078bb708f9b3db9c52"},
-    {file = "odd_models-1.0.0-py3-none-any.whl", hash = "sha256:05dff8a7ec1feed1d6ab7bcd9e2b4d1f9fcab857c2b87dea2638e5d70f05ff54"},
+    {file = "odd-models-1.0.4.tar.gz", hash = "sha256:7b0d432e13a08cd68781b402c45266f0119d0cd128ac9ec926339ce5e853c1de"},
+    {file = "odd_models-1.0.4-py3-none-any.whl", hash = "sha256:c294374246b661dc1208f5850201777f674d3e08fc72e23921a6cefd5f9c9741"},
 ]
 oddrn-generator = [
     {file = "oddrn-generator-0.1.13.tar.gz", hash = "sha256:1b2de60365ae9475b1a11d55ae9703d8a9407823b5ef4783c38f86a7138c8363"},
