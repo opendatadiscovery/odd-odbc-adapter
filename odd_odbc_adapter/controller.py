@@ -2,7 +2,7 @@ import logging
 from datetime import datetime
 from typing import Tuple, Any, Dict, Optional
 
-from odd_models import ODDController
+from odd_models.adapter import ODDController
 from odd_models.models import DataEntityList
 
 from .adapter import OdbcAdapter
