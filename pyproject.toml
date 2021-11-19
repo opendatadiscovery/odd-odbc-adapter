@@ -4,13 +4,22 @@ version = "0.1.1"
 description = ""
 authors = ["Ruslan Ibragimov <ribragimov@provectus.com>"]
 
+[[tool.poetry.source]]
+name = "main"
+url = "https://test.pypi.org/simple/"
+secondary = true
+
+[[tool.poetry.source]]
+name = "test"
+url = "https://test.pypi.org/simple/"
+
 [tool.poetry.dependencies]
 python = "^3.8"
 gunicorn = "^20.1.0"
 flask = "^2.0.1"
 APScheduler = "^3.7.0"
 pyodbc = "^4.0.32"
-oddrn-generator = "^0.1.2"
+oddrn-generator = "0.1.19.dev1"
 odd-models = "^1.0.4"
 
 
