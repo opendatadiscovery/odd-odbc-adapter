@@ -20,7 +20,7 @@ flask = "^2.0.1"
 APScheduler = "^3.7.0"
 pyodbc = "^4.0.32"
 oddrn-generator = "0.1.19.dev1"
-odd-models = "^1.0.4"
+odd-models = "^1.0.9"
 
 
 [tool.poetry.dev-dependencies]
