@@ -57,5 +57,6 @@ TYPES_SQL_TO_ODD: dict[str, Type] = {
 
 TABLE_TYPES_SQL_TO_ODD: dict[str, DataEntityType] = {
     'BASE TABLE': DataEntityType.TABLE,
+    'TABLE': DataEntityType.TABLE,
     'VIEW': DataEntityType.VIEW,
 }

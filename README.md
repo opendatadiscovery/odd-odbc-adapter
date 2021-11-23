@@ -52,8 +52,8 @@ More info about Helm config in https://github.com/opendatadiscovery/charts
 Adapter is ready to work out of box, but you probably will need to redefine some variables in compose .env file:
 
 ```Python
-FLASK_ENVIRONMENT = development #For production case change this to "production"
-FLASK_APP = wsgi:application #Path to wsgi module of application (required by gunicorn)
+FLASK_ENVIRONMENT=development #For production case change this to "production"
+FLASK_APP=odd_odbc_adapter.wsgi:application #Path to wsgi module of application (required by gunicorn)
 
 MSSQL_PID=Developer
 

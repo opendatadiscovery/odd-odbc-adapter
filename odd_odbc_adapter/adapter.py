@@ -31,7 +31,7 @@ class OdbcAdapter:
     def get_data_source_oddrn(self) -> str:
         return self.__oddrn_generator.get_data_source_oddrn()
 
-    def get_datasets(self) -> list[DataEntity]:
+    def get_data_entities(self) -> list[DataEntity]:
         try:
             self.__connect()
 

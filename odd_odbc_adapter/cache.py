@@ -1,8 +1,8 @@
 import logging
 from datetime import datetime
-from itertools import chain
 from typing import List, Union, Iterable, Tuple
 
+import pytz
 from odd_models.models import DataEntity
 
 CacheEntry = Tuple[List[DataEntity], datetime]
@@ -12,11 +12,9 @@ class Cache:
     __DATA_ENTITIES: CacheEntry = None
 
     def cache_data_entities(self,
-                            datasets: Iterable[DataEntity],
-                            data_transformers: Iterable[DataEntity],
-                            data_transformer_runs: Iterable[DataEntity],
-                            updated_at: datetime = datetime.now()):
-        self.__DATA_ENTITIES = list(chain(datasets, data_transformers, data_transformer_runs)), updated_at
+                            data_entities: Iterable[DataEntity],
+                            updated_at: datetime = datetime.now(tz=pytz.UTC)):
+        self.__DATA_ENTITIES = list(data_entities), updated_at
 
     def retrieve_data_entities(self, changed_since: datetime = None) -> Union[CacheEntry, None]:
         if self.__DATA_ENTITIES is None:
